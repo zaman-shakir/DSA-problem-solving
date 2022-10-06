@@ -25,7 +25,7 @@ function is_unique(array $arr =[]){
     */
     $new_arr =[];
     foreach($arr as $a ){
-        if($new_arr[$a])
+        if(isset($new_arr[$a]))
         {
             $new_arr[$a] = false;
             return false;
@@ -38,5 +38,5 @@ function is_unique(array $arr =[]){
 $arr = [1,2,3,4,5,6,7,8,8,9,9,7,3,2];
 $arr = [9,7,4,6];
 $arr = ['a','c','d','h','a'];
-$arr = ['a','c','d','h'];
+//$arr = ['a','c','d','h'];
 var_dump(is_unique($arr));
