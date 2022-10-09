@@ -2,35 +2,50 @@
 
 function oneAway(string $str1, string $str2):bool{
 
-    $len1 = strlen($str1);
-    $len2 = strlen($str2);
-
-    if($len1 == $len2){
-
-        //replacement
-        $found_position = false;
-        for($i = 0; $i<$len1; $i++){
-            if($str1[$i] !== $str2[$i] ){
-
-                if($found_position) break;
-                $str2[$i] = $str1[$i];
-                $found_position = true;
-
+           $length1 = strlen($str1);
+        $length2 = strlen($str2);
+        if (abs($length2 - $length1) > 1) {
+            return false;
+        }
+        if ($length1 == $length2) {
+            $diffCount = 0;
+            for ($i=0; $i<$length1; $i++) {
+                if ($str1[$i] !== $str2[$i]) {
+                    if (++$diffCount > 1) {
+                        return false;
+                    }
+                }
+            }
+        } else {
+            if ($length1 > $length2) {
+                $longer = $str1;
+                $shorter = $str2;
+                $longerLength = $length1;
+                $shorterLength = $length2;
+            } else {
+                $longer = $str2;
+                $shorter = $str1;
+                $longerLength = $length2;
+                $shorterLength = $length1;
+            }
+            $diffCount = 0;
+            for ($i=0, $j=0; $i<$longerLength && $j<$shorterLength; $i++, $j++) {
+                $char1 = $longer[$i];
+                $char2 = $shorter[$j];
+                if ($char1 === $char2) {
+                    continue;
+                }
+                if (++$diffCount > 1) {
+                    return false;
+                }
+                $j--; // advance the cursor on the longer string an extra step because we found a diff
             }
         }
-
-    }elseif($len1 + 1 == $len2){
-        //deletion
-    }elseif($len1 == $len2 + 1){
-        //insertion
-    }
-
-
-    return false;
+        return true;
 }
 
-var_dump(oneAway("pale","ple"));
-var_dump(oneAway("pales","pale"));
-var_dump(oneAway("pale","bale"));
+var_dump(oneAway("pale","plle"));
+ var_dump(oneAway("pales","pale"));
+ var_dump(oneAway("pale","bale"));
 var_dump(oneAway("pale","bae"));
 
