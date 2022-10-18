@@ -24,10 +24,7 @@
         }
 
         public function setNext($next){
-            $this->$next = $next;
+            $this->next = $next;
         }
 
     }
-
-
-
