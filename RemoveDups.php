@@ -37,11 +37,16 @@ function removeDups(Node $node){
 
                 $previous->setNext($pointer2->getNext());
 
+                $pointer2 = $previous;
+
             }
             else{
-                $pointer2 = $pointer2->getNext();
+                //$pointer2 = $pointer2->getNext();
+                $previous = $pointer2->getNext();
             }
+            $pointer2= $pointer2->getNext();
         }
+        $pointer1 = $pointer1->getNext();
 
     }
 
