@@ -50,7 +50,6 @@ function removeDups(Node $node){
 
     }
 
-
 }
 
 
