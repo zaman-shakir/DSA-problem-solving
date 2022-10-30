@@ -11,11 +11,7 @@ require_once("lib/LinkedList.php");
 //     $linkedlist->add($val);
 // }
 
-class MinStack extends Node{
 
-    $min
-
-}
 
 $a1 = new Node();
 $a1->setData(7);
