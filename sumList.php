@@ -2,15 +2,20 @@
 require_once("lib/Node.php");
 require_once("lib/LinkedList.php");
 
-$linkedlist = new LinkedList();
+// $linkedlist = new LinkedList();
 
-$test_val = [11,12,13,13,14,15,15,16,17];
+// $test_val = [11,12,13,13,14,15,15,16,17];
 
-foreach($test_val as $val){
+// foreach($test_val as $val){
 
-    $linkedlist->add($val);
+//     $linkedlist->add($val);
+// }
+
+class MinStack extends Node{
+
+    $min
+
 }
-
 
 $a1 = new Node();
 $a1->setData(7);
