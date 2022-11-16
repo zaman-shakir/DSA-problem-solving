@@ -1,8 +1,6 @@
 <?php
 require_once('BinaryNode.php');
-/**
- * Class for creating the binary tree
- */
+
 class BinaryTree
 {
     private $root = null;
@@ -10,20 +8,16 @@ class BinaryTree
     {
         $this->root = null;
     }
-    /**
-     * Method to check if the tree is empty
-     */
+
     public function isEmpty()
     {
         return $this->root === null;
     }
-    /**
-     * Method to insert elements in to the binary tree
-     */
+
     public function insert($data)
     {
         $node = new BinaryNode($data);
-        if ($this->isEmpty()) { // this is the root node
+        if ($this->isEmpty()) {
             $this->root = $node;
             return true;
         } else {
