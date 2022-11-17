@@ -1,161 +1,210 @@
 <?php
-require_once('BinaryNode.php');
+class Node {
 
-class BinaryTree
-{
-    private $root = null;
-    public function __construct()
-    {
-        $this->root = null;
-    }
+    public $info;
+    public $left;
+    public $right;
+    public $level;
 
-    public function isEmpty()
-    {
-        return $this->root === null;
-    }
-
-    public function insert($data)
-    {
-        $node = new BinaryNode($data);
-        if ($this->isEmpty()) {
-            $this->root = $node;
-            return true;
-        } else {
-            return $this->insertNode($node, $this->root);
-        }
-    }
-    /**
-     * Method to recursively add nodes to the binary tree
-     */
-    private function insertNode($node, $current)
-    {
-        $added = false;
-        while ($added === false) {
-            if ($node->data < $current->data) {
-                if ($current->left === null) {
-                    $current->addChildren($node, $current->right);
-                    $added = $node;
-                    break;
-                } else {
-                    $current = $current->left;
-                    return $this->insertNode($node, $current);
-                }
-            } elseif ($node->data > $current->data) {
-                if ($current->right === null) {
-                    $current->addChildren($current->left, $node);
-                    $added = $node;
-                    break;
-                } else {
-                    $current = $current->right;
-                    return $this->insertNode($node, $current);
-                }
-            } else {
-                break;
-            }
-        }
-        return $added;
-    }
-    /**
-     * Method to retrieve a node from the binary tree
-     */
-    public function retrieve($node)
-    {
-        if ($this->isEmpty()) {
-            return false;
-        }
-        $current = $this->root;
-        if ($node->data === $this->root->data) {
-            return true;
-        } else {
-            return $this->retrieveNode($node, $current);
-        }
-    }
-    /**
-     * Method to recursively add nodes to a binary tree
-     */
-    private function retrieveNode($node, $current)
-    {
-        $exists = false;
-        while ($exists === false) {
-            if ($node->data < $current->data) {
-                if ($current->left === null) {
-                    break;
-                } elseif ($node->data == $current->left->data) {
-                    $exists = $current->left;
-                    break;
-                } else {
-                    $current = $current->left;
-                    return $this->retrieveNode($node, $current);
-                }
-            } elseif ($node->data > $current->data) {
-                if ($current->right === null) {
-                    break;
-                } elseif ($node->data == $current->right->data) {
-                    $exists = $current->right;
-                    break;
-                } else {
-                    $current = $current->right;
-                    return $this->retrieveNode($node, $current);
-                }
-            }
-        }
-        return $exists;
+    public function __construct($info) {
+           $this->info = $info;
+           $this->left = NULL;
+           $this->right = NULL;
+           $this->level = NULL;
     }
 
-    /**
-     * Method to remove an element from the binary tree
-     */
-    public function removeElement($elem)
-    {
-        if ($this->isEmpty()) {
-            return false;
-        }
-        $node = $this->retrieve($elem);
-        if (!$node) {
-            return false;
-        }
-        if ($elem->data === $this->root->data) {
-            // find the largest value in the left sub tree
-            $current = $this->root->left;
-            while ($current->right != null) {
-                $current = $current->right;
-                continue;
-            }
-        } // added this to remove error
-        // set this node to be the root
-        $current->left = $this->root->left;
-        $current->right = $this->root->right;
-        //Find the parent for the node and set it as the parent for any //children the node may have had
-        $parent = $this->findParent($current, $this->root);
-        $parent->right = $current->left;
-        //finally set that node as the new root for the binary tree
-        $this->root = $current;
-        return true;
-    }
-    private function findParent($child, $current)
-    {
-        $parent = false;
-        while ($parent === false) {
-            if ($child->data < $current->data) {
-                if ($child->data === $current->left->data) {
-                    $parent = $current;
-                    break;
-                } else {
-                    return $this->findParent($child, $current->left);
-                    break;
-                }
-            } elseif ($child->data > $current->data) {
-                if ($child->data === $current->right->data) {
-                    $parent = $current;
-                    break;
-                } else {
-                    return $this->findParent($child, $current->right);
-                    break;
-                }
-            } else {
-                break;
-            }
-        }
-        return $parent;
+    public function __toString() {
+
+           return "$this->info";
     }
 }
+
+
+class SearchBinaryTree {
+
+    public $root;
+
+    public function  __construct() {
+           $this->root = NULL;
+    }
+
+    public function create($info) {
+
+           if($this->root == NULL) {
+
+              $this->root = new Node($info);
+
+           } else {
+
+              $current = $this->root;
+
+              while(true) {
+
+                    if($info < $current->info) {
+
+                          if($current->left) {
+                             $current = $current->left;
+                          } else {
+                             $current->left = new Node($info);
+                             break;
+                          }
+
+                    } else if($info > $current->info){
+
+                          if($current->right) {
+                             $current = $current->right;
+                          } else {
+                             $current->right = new Node($info);
+                             break;
+                          }
+
+                    } else {
+
+                      break;
+                    }
+              }
+           }
+    }
+
+    public function traverse($method) {
+
+           switch($method) {
+
+               case 'inorder':
+               $this->_inorder($this->root);
+               break;
+
+               case 'postorder':
+               $this->_postorder($this->root);
+               break;
+
+               case 'preorder':
+               $this->_preorder($this->root);
+               break;
+
+               default:
+               break;
+           }
+
+    }
+
+    private function _inorder($node) {
+
+                    if($node->left) {
+                       $this->_inorder($node->left);
+                    }
+
+                    echo $node. " ";
+
+                    if($node->right) {
+                       $this->_inorder($node->right);
+                    }
+    }
+
+
+    private function _preorder($node) {
+
+                    echo $node. " ";
+
+                    if($node->left) {
+                       $this->_preorder($node->left);
+                    }
+
+
+                    if($node->right) {
+                       $this->_preorder($node->right);
+                    }
+    }
+
+
+    private function _postorder($node) {
+
+
+                    if($node->left) {
+                       $this->_postorder($node->left);
+                    }
+
+
+                    if($node->right) {
+                       $this->_postorder($node->right);
+                    }
+
+                    echo $node. " ";
+    }
+
+
+    public function BFT() {
+
+           $node = $this->root;
+
+           $node->level = 1;
+
+           $queue = array($node);
+
+           $out = array("<br/>");
+
+
+           $current_level = $node->level;
+
+
+           while(count($queue) > 0) {
+
+                 $current_node = array_shift($queue);
+
+                 if($current_node->level > $current_level) {
+                      $current_level++;
+                      array_push($out,"<br/>");
+                 }
+
+                 array_push($out,$current_node->info. " ");
+
+                 if($current_node->left) {
+                    $current_node->left->level = $current_level + 1;
+                    array_push($queue,$current_node->left);
+                 }
+
+                 if($current_node->right) {
+                    $current_node->right->level = $current_level + 1;
+                    array_push($queue,$current_node->right);
+                 }
+           }
+
+
+          return join($out,"");
+    }
+}
+         $arr = array(8,3,1,6,4,7,10,14,13);
+
+         $tree = new SearchBinaryTree();
+         for($i=0,$n=count($arr);$i<$n;$i++) {
+             $tree->create($arr[$i]);
+         }
+$str = <<<INTRO
+In computer science, a binary search tree (BST) is a node-based binary tree structure which has the following
+properties:
+<ul>
+<li>the left subtree of a node contains only nodes with keys less than the node's key</li>
+<li>the right subtree of a node contains only nodes with keys greater than the node's key</li>
+<li>both the left and right subtrees must also be binary search trees</li>
+</ul>
+INTRO;
+
+echo"<h1>Binary Search Tree</h1>";
+
+echo"<p>$str</p>";
+
+echo "<h2>Input vector: ", join($arr," "), "</h2>";
+
+echo"<h1>Breadh-First Traversal Tree</h1>";
+echo $tree->BFT();
+
+echo"<h1>Inorder</h1>";
+$tree->traverse('inorder');
+
+
+echo"<h1>Postorder</h1>";
+$tree->traverse('postorder');
+
+echo"<h1>Preorder</h1>";
+$tree->traverse('preorder');
+?>

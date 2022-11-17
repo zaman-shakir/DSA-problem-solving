@@ -26,6 +26,11 @@ Class BST{
 
     public function create($info){
 
+        // check if root is not null
+        if($this->root == null){
+            $this->root = new Node($info);
+        }
+
     }
 
 
