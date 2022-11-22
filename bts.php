@@ -99,6 +99,14 @@ Class BST{
 
 
 }
+/*
+          10
+        /    \
+       6      18
+      /  \    /  \
+     4   8   15   21
+
+*/
 $tree1 = new BST();
 $tree1->create(10);
 $tree1->create(6);
@@ -109,7 +117,7 @@ $tree1->create(15);
 $tree1->create(21);
 
 $tree1->traverse();
-var_dump($tree1);
+//var_dump($tree1);
 
 
 
