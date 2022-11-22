@@ -1,2 +1,2 @@
 <?php
-$s
+$num = $hash[$num-1];
