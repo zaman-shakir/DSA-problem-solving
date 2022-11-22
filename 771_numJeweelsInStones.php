@@ -1,3 +1,4 @@
+<?php
 /**
      * @param String $jewels
      * @param String $stones
