@@ -5,16 +5,23 @@
      * @return Integer
      */
     function numIdenticalPairs($nums) {
-        $ans = 0;
-        $len = count($nums);
-        for($i=0; $i<$len; $i++){
+        $hash = [];
+        $res = 0;
+        foreach($nums as $num){
 
-            for($j = $i+1; $j < $len && $i< $len-1; $j++){
-                if($nums[$i] == $nums[$j]) $ans++;
+            if(array_key_exists($num,$hash)){
+
+                $res = $res + $hash[$num];
+
+                $hash[$num]++;
+
+
+            }else{
+                $hash[$num] = 1;
             }
 
         }
-        return $ans;
+        return $res;
     }
 
     $input = [1,2,3,1,1,3];
