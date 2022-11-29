@@ -1,2 +1,5 @@
 <?php
-$num = $hash[$num-1];
+if(!in_array($neighbour, $visited)){
+                $visited[] = $neighbour;
+                $queue->enqueue($neighbour);
+            }
