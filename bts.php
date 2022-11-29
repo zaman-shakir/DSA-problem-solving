@@ -91,10 +91,27 @@ Class BST{
 
     }
     public function _postorder($node){
+        if($node->left){
+            $this->_inorder($node->left);
+        }
 
+
+        if($node->right) {
+           $this->_inorder($node->right);
+        }
+        echo $node. " ";
     }
     public function _preorder($node){
+        echo $node. " ";
 
+        if($node->left){
+            $this->_inorder($node->left);
+        }
+
+
+        if($node->right) {
+           $this->_inorder($node->right);
+        }
     }
 
 
