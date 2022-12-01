@@ -41,7 +41,7 @@ function bfs_self($g,$start,$end){
         $graph[$node1][] = $node2;
 
     }
-
+print_r($graph); die();
     $queue = new SplQueue();
     $queue->enqueue($start);
     $visited[$start]=1;
