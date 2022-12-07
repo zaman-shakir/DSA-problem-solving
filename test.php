@@ -3,7 +3,7 @@ $url[] = "http://newdev3.hilltimes.com/?post_type=news_opinion_list_pc&p=355168&
 $url[] = "https://prod4.hilltimes.com/story/2022/12/05/357637/357637/";
 $url[] = "https://prod4.hilltimes.com/story/2022/12/07/the-north-needs-less-ottawa%ef%bf%bc/357844/?preview=true";
 $url[] = "https://prod4.hilltimes.com/story/2022/12/07/the-north-needs-less-ottawa%ef%bf%bc/357844/?preview_id=357844&preview_nonce=d2c445ec50&preview=true&_thumbnail_id=357848";
-
+var_dump($url);
 foreach($url as $link){
 
     preg_match_all('!\d+\.*\d*!', $link, $output);
