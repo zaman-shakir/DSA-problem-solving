@@ -8,16 +8,12 @@
         $hash = [];
         $res = 0;
         foreach($nums as $num){
-
             if(array_key_exists($num,$hash)){
-
                 $res = $res + $hash[$num];
-
                 $hash[$num]++;
             }else{
                 $hash[$num] = 1;
             }
-
         }
         return $res;
     }
