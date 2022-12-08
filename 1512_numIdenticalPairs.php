@@ -14,8 +14,6 @@
                 $res = $res + $hash[$num];
 
                 $hash[$num]++;
-
-
             }else{
                 $hash[$num] = 1;
             }
