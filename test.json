@@ -1,0 +1,30 @@
+{
+    "_links": {
+        "type": {
+            "href": "http:\/\/twuc-staging.writersunion.ca\/rest\/type\/file\/image"
+        }
+    },
+    "filename": [
+        {
+            "value": "image1.jpg"
+        }
+    ],
+    "filemime": [
+        {
+            "value": "image\/png"
+        }
+    ],
+    "uri": [
+        {
+            "value": "g3.jpg"
+        }
+    ],
+    "type": {
+        "target_id": "file"
+    },
+    "data": [
+        {
+            "value": "fd"
+        }
+    ]
+}%
