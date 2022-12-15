@@ -1,7 +1,6 @@
 <?php
-$X = "AGGTAB";
-$Y = "GXTXAYB";
-echo "Length of LCS is ";
+$X = "abcdef";
+$Y = "abgc";
 echo lcs($X, $Y);
 
 function lcs($text1,$text2){
@@ -21,11 +20,5 @@ function lcs($text1,$text2){
 
         }
     }
-    echo "<pre>";
-    var_dump($lcs); die();
-    var_dump($lcs[$m-1][$n-1]); die();
-
-
-
-
+    return $lcs[$m][$n];
 }
