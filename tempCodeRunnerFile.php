@@ -1,5 +1,8 @@
 <?php
-if($id > 100000){
-            echo $id ;
-            break;
-        }
+// for($i=1; $i<count($rooms); $i++){
+
+        //     if(!array_key_exists($i,$map)){
+
+        //         return false;
+        //     }
+        // }
