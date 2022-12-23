@@ -31,10 +31,10 @@
     $rooms = [[1],[2],[3],[]];
     //$rooms = [[6,7,8],[5,4,9],[],[8],[4],[],[1,9,2,3],[7],[6,5],[2,3,1]];
     var_dump(canVisitAllRooms($rooms));
-    1. Mark rooms[0] visitied and put all the keys into a stack $stack.
-    2. Perfrom operations untill stack becomes empty:
+    // 1. Mark rooms[0] visitied and put all the keys into a stack $stack.
+    // 2. Perfrom operations untill stack becomes empty:
 
-    - if $roommIndex is not visited then put into $visitedIndex array.
-    - get all keys from $roomIndex and put all those keys into $stack
+    // - if $roommIndex is not visited then put into $visitedIndex array.
+    // - get all keys from $roomIndex and put all those keys into $stack
 
-    if the  count of visitedRooms equals to the count of rooms then all the room has been visited, return true, otherwise return false.
+    // if the  count of visitedRooms equals to the count of rooms then all the room has been visited, return true, otherwise return false.

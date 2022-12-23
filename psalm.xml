@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<psalm
+    errorLevel="7"
+    resolveFromConfigFile="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+>
+    <projectFiles>
+        <file name="longestUniqueSubsttr.php" />
+        <file name="frequencySort.php" />
+        <file name="RemoveDups.php" />
+        <file name="sortedArrToBst.php" />
+        <file name="2256_minimumAverageDIfference.php" />
+        <file name="linkedlistPalindrome.php" />
+        <file name="reverseVowels.php" />
+        <file name="maxArea.php" />
+        <file name="leetcode219_containsDUplicateII.php" />
+        <file name="20_isValid.php" />
+        <file name="1365_smallerNumbersThanCurrent.php" />
+        <file name="maxPathSum.php" />
+        <file name="minStack.php" />
+        <file name="PalimdromeCombination.php" />
+        <file name="BinaryTree.php" />
+        <file name="leetcode9_ispalindrome.php" />
+        <file name="sumList.php" />
+        <file name="MiddleNodeDeleter.php" />
+        <file name="majjorityElement.php" />
+        <file name="OneAway.php" />
+        <file name="1512_numIdenticalPairs.php" />
+        <file name="BinaryNode.php" />
+        <file name="URLify.php" />
+        <file name="titleNoNumber.php" />
+        <file name="letterCombination.php" />
+        <file name="sqRoot.php" />
+        <file name="leetcode12_intToRoman.php" />
+        <file name="tempCodeRunnerFile.php" />
+        <file name="1431_kidsWithCandies.php" />
+        <file name="771_numJeweelsInStones.php" />
+        <file name="test2.php" />
+        <file name="kthToLastElementFinder.php" />
+        <file name="bfs.php" />
+        <file name="leetcode692_TopKFrequentWords.php" />
+        <file name="1971_validPath.php" />
+        <file name="test.php" />
+        <file name="createTargetArray.php" />
+        <file name="1047_RemoveAllAdjacentDuplicatesInString.php" />
+        <file name="sortStack.php" />
+        <file name="isunique.php" />
+        <file name="bst.php" />
+        <file name="test_linkedlist.php" />
+        <file name="removeNthFromEnd.php" />
+        <file name="possibleBipartition.php" />
+        <file name="check_permutation.php" />
+        <file name="leetcode448_findDisappearedNumbers.php" />
+        <file name="letterCombinations.php" />
+        <file name="findErrorNums.php" />
+        <file name="sumOfDistancesInTree.php" />
+        <file name="queueViaStack.php" />
+        <file name="leetcode118_pascal_triangle1.php" />
+        <file name="nextGreaterElement.php" />
+        <file name="lcs.php" />
+        <file name="RotateMatrix.php" />
+        <file name="dailyTemperature.php" />
+        <file name="ZeroMatrix.php" />
+        <file name="evalRPN.php" />
+        <file name="rangeSumBst.php" />
+        <file name="leetcode500_keyboard_row.php" />
+        <file name="bts.php" />
+        <file name="844_backspace.php" />
+        <file name="leeetcode13_romantointegar.php" />
+        <file name="canVisitAllRooms.php" />
+        <file name="MaxHeapPhp.php" />
+        <file name="StringCompression.php" />
+        <file name="1657_closeStrings.php" />
+        <directory name="1704-determine-if-string-halves-are-alike" />
+        <directory name="1971-find-if-path-exists-in-graph" />
+        <directory name="lib" />
+        <ignoreFiles>
+            <directory name="vendor" />
+        </ignoreFiles>
+    </projectFiles>
+</psalm>
