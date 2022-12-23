@@ -1,5 +1,8 @@
 {
     "require": {
         "guzzlehttp/guzzle": "^7.5"
+    },
+    "require-dev": {
+        "vimeo/psalm": "^5.4"
     }
 }
