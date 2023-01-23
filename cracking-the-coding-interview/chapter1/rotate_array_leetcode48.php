@@ -14,11 +14,21 @@ $nums = [1,2,3,4,5,6,7]; $k = 3;
      */
     function rotate(&$nums, $k) {
 
-        for($i=0; $i<$k ; $i++){
-            print_r($nums);
-            array_unshift($nums, array_pop($nums) );
+        // for($i=0; $i<$k ; $i++){
+        //     print_r($nums);
+        //     array_unshift($nums, array_pop($nums) );
+        // }
+        // return $nums;
+        $len = count($nums);
+        $ans = [];
+        for($i=0; $i<$len ; $i++){
+
+            $pos =  ($i + $k) % $len;
+            $ans[$pos] = $nums[$i];
+
         }
-        return $nums;
+        ksort($ans);
+        return $ans;
     }
 
 
