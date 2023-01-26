@@ -7,62 +7,44 @@ class Solution {
     */
     function setZeroes(&$matrix) {
 
-        $rows = count($matrix);
-        $columns = count($matrix[0]);
-        var_dump($rows."--".$columns);
-        $topZero = false;
-        for($i=0; $i<$rows; $i++) {
+        $zeroRows = [];
+        $zeroCols = [];
 
-            for($j=0; $j<$columns; $j++) {
+        for($i=0; $i< count($matrix); $i++){
 
-                if($matrix[$i][$j] ==0){
-
-                    if($i==0 && $j==0){
-                        $topZero = true;
-                        // $matrix[$i][0] = 0;
-                        // $matrix[0][$j] = 0;
-                    }
-                    else{
-                        $matrix[$i][0] = 0;
-                        $matrix[0][$j] = 0;
-                    }
+            for($j=0; $j< count($matrix[$i]); $j++){
+                if($matrix[$i][$j] === 0) {
+                    $zeroRows[] = $i;
+                    $zeroCols[] = $j;
 
                 }
+            }
+
+        }
+
+        foreach($zeroRows as $r){
+
+            for($i=0; $i<count($matrix[$r]); $i++){
+
+                $matrix[$r][$i] = 0;
 
             }
 
         }
-     //   print_r($matrix);
-         print_r($matrix);
-         print_r($columns);
-         echo "\n";
-        // set columns 0 by first rows
-        for($i=0; $i<$columns; $i++){
 
-            if($matrix[0][$i] === 0){
+        foreach($zeroCols as $c){
 
-                for($j=0; $j<$rows; $j++) {
-                    $matrix[$j][$i] = 0;
-                }
+            for($i=0; $i<count($matrix); $i++){
+
+                $matrix[$i][$c] = 0;
+
             }
-        }
-    // set rows 0 by first column;
 
-      for($i=1; $i<$rows; $i++){
-
-            if($matrix[$i][0] == 0){
-
-                for($j=0; $j<$columns; $j++) {
-                    $matrix[$i][$j] = 0;
-                }
-            }
         }
 
-        if($topZero){
-            for($i=0; $i<$rows; $i++){
-                $matrix[$i][0] = 0;
-            }
-        }
+
+
+
 
         return null;
     }
