@@ -76,11 +76,13 @@
     function rotateMatrix($matrix){
         var_dump("before");
         printMatrix($matrix);
-        $n = count($matrix);
-        for($layer=0; $layer< $n/2; $layer++){
+        $len = count($matrix);
+
+        for($layer=0; $layer< $len/2; $layer++){
 
             $first = $layer;
-            $last = $n-1-$layer;
+
+            $last = $len-1-$layer;
 
             for($i= $first; $i<$last; $i++){
 
