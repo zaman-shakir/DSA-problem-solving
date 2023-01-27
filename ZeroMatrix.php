@@ -45,7 +45,6 @@
             }
         }
         printMatrix($matrix);
-
         //set all row 0
         for($i=1; $i<$row_count;$i++){
             if($matrix[$i][0] == 0 ){
