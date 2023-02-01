@@ -128,7 +128,7 @@ $tree1 = new BST();
 $tree1->create(10);
 $tree1->create(6);
 $tree1->create(4);
-$tree1->create(8);
+$tree1->create(8);code
 $tree1->create(18);
 $tree1->create(15);
 $tree1->create(21);
