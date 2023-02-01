@@ -1,64 +1,44 @@
 <?php
-//require_once('RotateMatrix.php');
 
-function printMatrix($matrix){
-
-    for($i=0 ; $i<4 ; $i++){
-
-        for ($j=0; $j<4; $j++){
-            echo $matrix[$i][$j]." ";
-        }
-        echo "\n";
-    }
+function d2b($d){
+    echo sprintf('%08b',  $d)."\n";
 }
-$matrix =   [
-                [5 , 1,  9,  11],
-                [2 , 4,  8,  10],
-                [13, 3,  6,  7],
-                [15, 14, 12, 16]
-            ];
 
+// $d1 =5;
+// $d2 =7;
+// echo $d1."----".d2b($d1)."\n";;
+// echo "--------------------------------"."\n";
+// echo $d2."----".d2b($d2)."\n";;
+// echo "--------------------------------"."\n";
+// echo ($d2 ^ $d1)."\n";
+// d2b(($d2 ^ $d1));
 
-function rotate(array $matrix):array {
-    echo "before rotate"; echo "\n";
-    printMatrix($matrix); echo "\n";
+function update($n, $m, $i, $j){
 
-    $len = count($matrix);
+    // setting all 1
+    $allOnes = ~0;
+    $left = $allOnes<<($j+1);
+    d2b($left);
 
-    for($layer=0; $layer < $len/2; $layer++) {
+    $right = (( 1<<$i)  );
+    d2b($right);
+    $right = (( 1<<$i) -1 );
+    d2b($right);
 
-        // $first = $layer;
-        $last = $len-1-$layer;
+    $mask = $left | $right;
+    d2b($mask);
+    d2b($n);
+    $n_cleared = $n & $mask;
+    d2b($n_cleared);
+    d2b($m);
+    $m_shifted = $m << $i;
+    d2b($m_shifted);
 
-        for($i=$layer; $i < $last; $i++) {
-
-            $offset = $i-$layer;
-
-            $topLeft = $matrix[$layer][$i];
-
-            // set top left
-            $matrix[$layer][$i] = $matrix[$last-$offset][$layer];
-
-            // set bottom left
-            $matrix[$last-$offset][$layer] = $matrix[$last][$last-$offset];
-
-            // set bottom right
-
-            $matrix[$last][$last-$offset] = $matrix[$layer][$last-$offset];
-
-
-            $matrix[$layer][$last-$offset] = $topLeft;
-
-        }
-
-    }
-
-
-
-
-    echo "after rotate"; echo "\n";
-    printMatrix($matrix); echo "\n";
-    return $matrix;
 
 }
-rotate($matrix);
+
+$m=19;
+$n=1024;
+$i=2; $j=6;
+
+update($n, $m, $i, $j);
